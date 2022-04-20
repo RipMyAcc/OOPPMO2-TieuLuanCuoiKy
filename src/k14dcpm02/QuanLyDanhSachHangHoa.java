@@ -22,25 +22,25 @@ public class QuanLyDanhSachHangHoa{
     }
     public void duLieuCoSan() throws ParseException  
     {
-        list.add(new HangThucPham("Thịt", "Thực phẩm", "T1", 0, 19.000, simpleDateFormat.parse("1/7/2020"), simpleDateFormat.parse("1/7/2022"), "Big C"));
+        list.add(new HangThucPham("Thịt", "T1", 0, 19.000, simpleDateFormat.parse("1/7/2020"), simpleDateFormat.parse("1/7/2022"), "Big C"));
 
-        list.add(new HangThucPham("Cá", "Thực phẩm", "T2", 11, 20.000, simpleDateFormat.parse("2/2/2021"), simpleDateFormat.parse("2/2/2022"), "Big C"));
+        list.add(new HangThucPham("Cá", "T2", 11, 20.000, simpleDateFormat.parse("2/2/2021"), simpleDateFormat.parse("2/2/2022"), "Big C"));
 
-        list.add(new HangThucPham("Trứng", "Thực phẩm", "T3", 0, 3.000, simpleDateFormat.parse("30/4/2021"), simpleDateFormat.parse("30/4/2022"), "Big C"));
+        list.add(new HangThucPham("Trứng", "T3", 0, 3.000, simpleDateFormat.parse("30/4/2021"), simpleDateFormat.parse("30/4/2022"), "Big C"));
         
-        list.add(new HangThucPham("Củ", "Thực phẩm", "T4", 100, 2.000, simpleDateFormat.parse("25/3/2022"), simpleDateFormat.parse("30/3/2023"), "Big C"));
+        list.add(new HangThucPham("Củ", "T4", 100, 2.000, simpleDateFormat.parse("25/3/2022"), simpleDateFormat.parse("30/3/2023"), "Big C"));
         
-        list.add(new HangDienMay("Điện thoại", "Điện máy", "D1", 1, 150.000, 24, 15.000));
+        list.add(new HangDienMay("Điện thoại", "D1", 1, 150.000, 24, 15.000));
         
-        list.add(new HangDienMay("Máy tính bàn", "Điện máy", "D3", 300, 100.000, 36, 99.000));
+        list.add(new HangDienMay("Máy tính bàn", "D3", 300, 100.000, 36, 99.000));
         
-        list.add(new HangDienMay("Tivi", "Điện máy", "40", 350, 75.000, 36, 70.000));
+        list.add(new HangDienMay("Tivi", "40", 350, 75.000, 36, 70.000));
         
-        list.add(new HangSanhSu("Ấm", "Sành sứ", "S7", 1000, 10.000, "Gốm sứ Việt", simpleDateFormat.parse("1/3/2022")));
+        list.add(new HangSanhSu("Ấm", "S7", 1000, 10.000, "Gốm sứ Việt", simpleDateFormat.parse("1/3/2022")));
         
-        list.add(new HangSanhSu("Ly", "Sành sứ", "S11", 11, 5.000, "Gốm Sài Gòn", simpleDateFormat.parse("22/3/2022")));
+        list.add(new HangSanhSu("Ly", "S11", 11, 5.000, "Gốm Sài Gòn", simpleDateFormat.parse("22/3/2022")));
         
-        list.add(new HangSanhSu("Tô", "Sành sứ", "S12", 1200, 9.000, "Gốm bát tràng", simpleDateFormat.parse("15/4/2022")));
+        list.add(new HangSanhSu("Tô", "S12", 1200, 9.000, "Gốm bát tràng", simpleDateFormat.parse("15/4/2022")));
     }
 ///////////////////////////////////////////////////////////////////////////
     public HangHoa nhapHangHoaKhongCoMa(String maHang)
@@ -81,7 +81,6 @@ public class QuanLyDanhSachHangHoa{
             }while(number!=1 && number!=2 && number!=3);
             if(number==1)//////////////////////////////////////
             {
-                String loaiHang="Thực phẩm";
                 Date ngaySX=null;
                 Date ngayHetHan=null;
                 do{
@@ -95,11 +94,10 @@ public class QuanLyDanhSachHangHoa{
                 }while(ngayHetHan.before(ngaySX));
                 System.out.print("Nhà cung cấp: ");
                 String nhaCungCap = chu.nextLine();
-                hangHoa = new HangThucPham(tenHang, loaiHang, maHang, soLuongTonKho, donGia, ngaySX, ngayHetHan, nhaCungCap);
+                hangHoa = new HangThucPham(tenHang, maHang, soLuongTonKho, donGia, ngaySX, ngayHetHan, nhaCungCap);
             }
             else if(number==2)////////////////////////////////////////////
             {
-                String loaiHang="Điện máy";
                 int tGBaoHanh;
                 do{
                     System.out.print("Thời gian bảo hành (tháng): ");
@@ -116,16 +114,15 @@ public class QuanLyDanhSachHangHoa{
                         System.out.println("Công suất phải >0");
                     }
                 }while(congSuatKW<=0);
-                hangHoa = new HangDienMay(tenHang, loaiHang, maHang, soLuongTonKho, donGia, tGBaoHanh, congSuatKW);
+                hangHoa = new HangDienMay(tenHang, maHang, soLuongTonKho, donGia, tGBaoHanh, congSuatKW);
             }
             else
             {
-                String loaiHang="Sành sứ";
                 System.out.print("Nhà sản xuất: ");
                 String nhaSanXuat = chu.nextLine();
                 System.out.print("Ngày nhập kho (dd/mm/yyyy): ");
                 Date ngayNhapKho = simpleDateFormat.parse(chu.nextLine());
-                hangHoa = new HangSanhSu(tenHang, loaiHang, maHang, soLuongTonKho, donGia, nhaSanXuat, ngayNhapKho);
+                hangHoa = new HangSanhSu(tenHang, maHang, soLuongTonKho, donGia, nhaSanXuat, ngayNhapKho);
             
             }
         } catch (Exception e) {

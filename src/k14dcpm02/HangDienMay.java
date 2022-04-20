@@ -5,8 +5,8 @@ public class HangDienMay extends HangHoa{
     private double congSuatKW;
 ///////////////////////////////////////
     public HangDienMay(){}
-    public HangDienMay(String tenHang, String loaiHang, String maHang, int soLuongTonKho, double donGia, int tGBaoHanh, double congSuatKW) {
-        super(tenHang, loaiHang, maHang, soLuongTonKho, donGia);
+    public HangDienMay(String tenHang, String maHang, int soLuongTonKho, double donGia, int tGBaoHanh, double congSuatKW) {
+        super(tenHang, maHang, soLuongTonKho, donGia);
         this.tGBaoHanh = tGBaoHanh;
         this.congSuatKW = congSuatKW;
     }
@@ -30,6 +30,10 @@ public class HangDienMay extends HangHoa{
             d = "bán được";
         }
         return d;
+    }
+    @Override
+    public String getLoaiHang() {
+        return "Điện máy";
     }
 /////////////////////////////////////////
     @Override

@@ -7,9 +7,9 @@ public class HangSanhSu extends HangHoa{
     private Date ngayNhapKho;
 ////////////////////////////////////////////
     public HangSanhSu(){}
-    public HangSanhSu(String tenHang, String loaiHang, String maHang, int soLuongTonKho, double donGia, String nhaSanXuat, Date ngayNhapKho) 
+    public HangSanhSu(String tenHang, String maHang, int soLuongTonKho, double donGia, String nhaSanXuat, Date ngayNhapKho) 
     {
-        super(tenHang, loaiHang, maHang, soLuongTonKho, donGia);
+        super(tenHang, maHang, soLuongTonKho, donGia);
         this.nhaSanXuat = nhaSanXuat;
         this.ngayNhapKho = ngayNhapKho;
     }
@@ -34,6 +34,11 @@ public class HangSanhSu extends HangHoa{
         }
         return d;
     }
+    @Override
+    public String getLoaiHang() {
+        return "Sành sứ";
+    }
+//////////////////////////////////////
     @Override
     public String toString() {
         String str = QuanLyDanhSachHangHoa.simpleDateFormat.format(getNgayNhapKho());

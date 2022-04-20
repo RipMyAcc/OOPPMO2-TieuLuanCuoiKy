@@ -9,8 +9,8 @@ public class HangThucPham extends HangHoa{
     private String nhaCungCap;
 ////////////////////////////////////////
     public HangThucPham(){}
-    public HangThucPham(String tenHang, String loaiHang, String maHang, int soLuongTonKho, double donGia, Date ngaySX, Date ngayHetHan, String nhaCungCap) {
-        super(tenHang, loaiHang, maHang, soLuongTonKho, donGia);
+    public HangThucPham(String tenHang, String maHang, int soLuongTonKho, double donGia, Date ngaySX, Date ngayHetHan, String nhaCungCap) {
+        super(tenHang, maHang, soLuongTonKho, donGia);
         this.ngaySX = ngaySX;
         this.ngayHetHan = ngayHetHan;
         this.nhaCungCap = nhaCungCap;
@@ -38,6 +38,10 @@ public class HangThucPham extends HangHoa{
             d = "khó bán";
         }
         return d;
+    }
+    @Override
+    public String getLoaiHang() {
+        return "Thực phẩm";
     }
 //////////////////////////////////////////////////////
     @Override
