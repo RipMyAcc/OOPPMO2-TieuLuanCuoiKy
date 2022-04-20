@@ -17,6 +17,9 @@ public class QuanLyDanhSachHangHoa{
     public static Scanner so = new Scanner(System.in);
     public static Scanner chu = new Scanner(System.in);
 ////////////////////////////////////////////////////
+    public static void resetSo(){
+        so= new Scanner(System.in);
+    }
     public void duLieuCoSan() throws ParseException  
     {
         list.add(new HangThucPham("Thịt", "Thực phẩm", "T1", 0, 19.000, simpleDateFormat.parse("1/7/2020"), simpleDateFormat.parse("1/7/2022"), "Big C"));
@@ -60,8 +63,6 @@ public class QuanLyDanhSachHangHoa{
                     System.out.println("Số lượng tồn kho phải >=0");
                 }
             }while(soLuongTonKho<0);
-            
-            
             double donGia=0.0;////////////////////////////////////
             do{
                 System.out.print("Đơn giá: ");
@@ -128,8 +129,8 @@ public class QuanLyDanhSachHangHoa{
             
             }
         } catch (Exception e) {
-            so=new Scanner(System.in);
-            System.out.println("Chương trình bị lỗi do bạn nhập chữ vào chỗ cần nhập số, vui lòng thử lại");
+            resetSo();
+            System.out.println("Chương trình bị lỗi do bạn nhập chữ vào chỗ cần nhập số hoặc nhập sai định dạng ngày, vui lòng thử lại");
             e.printStackTrace();
         }
         return hangHoa;
@@ -158,6 +159,30 @@ public class QuanLyDanhSachHangHoa{
             System.out.println();
         }
     }
+    public void xuatHangThucPham(){
+        for (HangHoa hangHoa : list) {
+            if(hangHoa instanceof HangThucPham){
+                System.out.println(hangHoa);
+                System.out.println();
+            }
+        }
+    }
+    public void xuatHangDienMay(){
+        for (HangHoa hangHoa : list) {
+            if(hangHoa instanceof HangDienMay){
+                System.out.println(hangHoa);
+                System.out.println();
+            }
+        }
+    }
+    public void xuatHangSanhSu(){
+        for (HangHoa hangHoa : list) {
+            if(hangHoa instanceof HangSanhSu){
+                System.out.println(hangHoa);
+                System.out.println();
+            }
+        }
+    }
 ///////////////////////////////////////////////////////////////////////////////
     public HangHoa timHangTheoMa(String maHang)
     {
@@ -178,6 +203,35 @@ public class QuanLyDanhSachHangHoa{
     {
         if(hangHoa!=null){
             System.out.println(hangHoa);
+        }
+    }
+    public List<HangHoa> timHangHoaTheoTen(String tenHang){
+        List<HangHoa> list1= new ArrayList<>();
+        for (HangHoa hangHoa : list) {
+            if(hangHoa.getTenHang().equalsIgnoreCase(tenHang)){
+                list1.add(hangHoa);
+            }
+        }
+        return list1;
+    }
+    public List<HangHoa> timHangHoaTheoKhoangGia(double donGia1, double donGia2){
+        List<HangHoa> list1= new ArrayList<>();
+        for (HangHoa hangHoa : list) {
+            if(hangHoa.getDonGia()>=donGia1 && hangHoa.getDonGia()<=donGia2){
+                list1.add(hangHoa);
+            }
+        }
+        return list1;
+    }
+    public void xuatKetqua(List<HangHoa> list1){
+        if(list1.isEmpty()){
+            System.out.println("Không tìm thấy");
+        }
+        else{
+            for (HangHoa hangHoa : list1) {
+                System.out.println(hangHoa);
+                System.out.println();
+            }
         }
     }
 /////////////////////////////////////////////////////////////////////
@@ -243,6 +297,19 @@ public class QuanLyDanhSachHangHoa{
     public void sapXepGiamDanTheoGia(){
         sapXepTangDanTheoGia();
         Collections.reverse(list);
+    }
+    public void sapXepGiamDanTheoSoLuongTon(){
+        sapXepTangDanTheoSoLuongTon();
+        Collections.reverse(list);
+    }
+    public void sapXepTangDanTheoSoLuongTon(){
+        Comparator<HangHoa> comp = new Comparator<HangHoa>(){
+            public int compare(HangHoa o1, HangHoa o2) {
+                return Double.compare(o1.getSoLuongTon(), o2.getSoLuongTon());
+            }
+        };
+        Collections.sort(list, comp);
+        System.out.println("Đã sắp xếp");
     }
 /////////////////////////////////////////////////////////////////////////
     public void writeFile(String fileName) {
