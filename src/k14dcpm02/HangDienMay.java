@@ -11,6 +11,12 @@ public class HangDienMay extends HangHoa{
         this.congSuatKW = congSuatKW;
     }
 ////////////////////////////////////////////
+    public double getCongSuatKW() {
+        return congSuatKW;
+    }
+    public int gettGBaoHanh() {
+        return tGBaoHanh;
+    }
     @Override
     public double getThue() 
     {
@@ -28,7 +34,7 @@ public class HangDienMay extends HangHoa{
 /////////////////////////////////////////
     @Override
     public String toString() {
-        return super.toString()+ " || Thời gian bào hành (tháng): " +tGBaoHanh+ " || Công suất KW: " +congSuatKW+" || Thuế: "+getThue()+ " || Đánh giá hàng điện máy: " +getDanhGia();
+        return super.toString()+ " || Thời gian bào hành (tháng): " +gettGBaoHanh()+ " || Công suất KW: " +getCongSuatKW()+" || Thuế: "+getThue()+ " || Đánh giá hàng điện máy: " +getDanhGia();
     }
     
 }

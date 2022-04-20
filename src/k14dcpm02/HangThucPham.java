@@ -1,6 +1,5 @@
 package k14dcpm02;
 
-import java.text.SimpleDateFormat;
 //import java.util.Calendar;
 import java.util.Date;
 
@@ -17,6 +16,15 @@ public class HangThucPham extends HangHoa{
         this.nhaCungCap = nhaCungCap;
     }
 ////////////////////////////////////////////////
+    public Date getNgaySX() {
+        return ngaySX;
+    }
+    public Date getNgayHetHan() {
+        return ngayHetHan;
+    }
+    public String getNhaCungCap() {
+        return nhaCungCap;
+    }
     @Override
     public double getThue() 
     {
@@ -34,10 +42,9 @@ public class HangThucPham extends HangHoa{
 //////////////////////////////////////////////////////
     @Override
     public String toString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyy");
-        String str1 = simpleDateFormat.format(ngaySX);
-        String str2 = simpleDateFormat.format(ngayHetHan);   
-        return super.toString()+ " || Ngày sản xuất: " +str1+ " || Ngày hết hạn: " +str2+ " || Nhà cung cấp: "+nhaCungCap+ " || Thuế: " +getThue()+ " || Đánh giá: " +getDanhGia();
+        String str1 = QuanLyDanhSachHangHoa.simpleDateFormat.format(getNgaySX());
+        String str2 = QuanLyDanhSachHangHoa.simpleDateFormat.format(getNgayHetHan());   
+        return super.toString()+ " || Ngày sản xuất: " +str1+ " || Ngày hết hạn: " +str2+ " || Nhà cung cấp: "+getNhaCungCap()+ " || Thuế: " +getThue()+ " || Đánh giá: " +getDanhGia();
     }
 
     /*

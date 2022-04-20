@@ -1,12 +1,12 @@
 package k14dcpm02;
 
-public class TestDrive{
-    private static Kho kho = new Kho();
+public class Main{
+    static QuanLyDanhSachHangHoa quanLiDanhSachHangHoa = new QuanLyDanhSachHangHoa();
     static 
     {
         try 
         {
-            kho.duLieuCoSan();
+            quanLiDanhSachHangHoa.duLieuCoSan();
         } 
         catch (Exception e) 
         {
@@ -30,7 +30,7 @@ public class TestDrive{
         System.out.println("8.Ghi dữ liệu");
         System.out.println("9.Thống kê");
         System.out.print("Nhập số: ");
-        String n = Kho.chu.nextLine();
+        String n = QuanLyDanhSachHangHoa.chu.nextLine();
         switch(n)
         {
             case "1": themHang(); break;
@@ -54,68 +54,68 @@ public class TestDrive{
     static void nhanEnterDeTiepTuc()
     {
         System.out.println("Nhấn enter để tiếp tục");
-        Kho.chu.nextLine();
+        QuanLyDanhSachHangHoa.chu.nextLine();
     }
     static void themHang()
     {
         String d=null;
         do{
-            kho.them(kho.nhapHangHoaKhongCoMa(kho.nhapMaHangHoa()));
+            quanLiDanhSachHangHoa.them(quanLiDanhSachHangHoa.nhapHangHoaKhongCoMa(quanLiDanhSachHangHoa.nhapMaHangHoa()));
             System.out.print("Nhập tiếp (y/n): ");
-            d=Kho.chu.nextLine();
+            d=QuanLyDanhSachHangHoa.chu.nextLine();
         }while(d.equalsIgnoreCase("y"));
         nhanEnterDeTiepTuc();
         menu();
     }
     static void xuatHang()
     {
-        kho.xuat();
+        quanLiDanhSachHangHoa.xuat();
         nhanEnterDeTiepTuc();
         menu();
     }
     static void timHang(){
         String maHang;
         System.out.print("Nhập mã hàng cần tìm: ");
-        maHang = Kho.chu.nextLine();
-        kho.traVeKetQua(kho.timHangTheoMa(maHang));
+        maHang = QuanLyDanhSachHangHoa.chu.nextLine();
+        quanLiDanhSachHangHoa.traVeKetQua(quanLiDanhSachHangHoa.timHangTheoMa(maHang));
         nhanEnterDeTiepTuc();
         menu();
     }
     static void xoaHang()
     {
         System.out.print("Nhập mã hàng hóa cần xóa: ");
-        String maHang = Kho.chu.nextLine();
-        kho.xoa(kho.timHangTheoMa(maHang));
+        String maHang = QuanLyDanhSachHangHoa.chu.nextLine();
+        quanLiDanhSachHangHoa.xoa(quanLiDanhSachHangHoa.timHangTheoMa(maHang));
         nhanEnterDeTiepTuc();
         menu();
     }
     static void sua()
     {
         System.out.print("Nhập mã hàng hóa cần sửa: ");
-        String maHang = Kho.chu.nextLine();
-        kho.suaHangHoa(maHang);
+        String maHang = QuanLyDanhSachHangHoa.chu.nextLine();
+        quanLiDanhSachHangHoa.suaHangHoa(maHang);
         nhanEnterDeTiepTuc();
         menu();
     }
     static void sapXepTangDanTheoGia(){
-        kho.sapXepTangDanTheoGia();
+        quanLiDanhSachHangHoa.sapXepTangDanTheoGia();
         nhanEnterDeTiepTuc();
         menu();
     }
     static void sapXepGiamDanTheoGia(){
-        kho.sapXepGiamDanTheoGia();
+        quanLiDanhSachHangHoa.sapXepGiamDanTheoGia();
         nhanEnterDeTiepTuc();
         menu();
     }
     static void ghiDuLieu(){
         System.out.print("Nhập tên file: ");
-        String fileName=Kho.chu.nextLine();
-        kho.writeFile(fileName);
+        String fileName=QuanLyDanhSachHangHoa.chu.nextLine();
+        quanLiDanhSachHangHoa.writeFile(fileName);
         nhanEnterDeTiepTuc();
         menu();
     }
     static void thongKe(){
-        kho.thongKe();
+        quanLiDanhSachHangHoa.thongKe();
         nhanEnterDeTiepTuc();
         menu();
     }

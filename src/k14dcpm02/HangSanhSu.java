@@ -1,6 +1,5 @@
 package k14dcpm02;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class HangSanhSu extends HangHoa{
@@ -15,6 +14,12 @@ public class HangSanhSu extends HangHoa{
         this.ngayNhapKho = ngayNhapKho;
     }
 //////////////////////////////////////////////////////////////////////////
+    public String getNhaSanXuat() {
+        return nhaSanXuat;
+    }
+    public Date getNgayNhapKho() {
+        return ngayNhapKho;
+    }
     @Override
     public double getThue() 
     {
@@ -31,8 +36,7 @@ public class HangSanhSu extends HangHoa{
     }
     @Override
     public String toString() {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyy");
-        String str = simpleDateFormat.format(ngayNhapKho);
-        return super.toString()+ " || Nhà sản xuất: " +nhaSanXuat+ " || Ngày nhập kho: " +str+ " || Thuế: " +getThue()+ " || Đánh giá hàng sành sứ: " +getDanhGia();
+        String str = QuanLyDanhSachHangHoa.simpleDateFormat.format(getNgayNhapKho());
+        return super.toString()+ " || Nhà sản xuất: " +getNhaSanXuat()+ " || Ngày nhập kho: " +str+ " || Thuế: " +getThue()+ " || Đánh giá hàng sành sứ: " +getDanhGia();
     }
 }

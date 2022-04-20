@@ -11,9 +11,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class Kho{
+public class QuanLyDanhSachHangHoa{
     private List<HangHoa> list = new ArrayList<>();
-    public SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
     public static Scanner so = new Scanner(System.in);
     public static Scanner chu = new Scanner(System.in);
 ////////////////////////////////////////////////////
@@ -224,7 +224,7 @@ public class Kho{
         }
     }
 /////////////////////////////////////////////////////////////////////////////
-    void sapXepTangDanTheoGia(){// danh sách
+    public void sapXepTangDanTheoGia(){// danh sách
         Comparator<HangHoa> comp = new Comparator<HangHoa>(){
             public int compare(HangHoa o1, HangHoa o2) {
                 return Double.compare(o1.getDonGia(), o2.getDonGia());
@@ -233,7 +233,7 @@ public class Kho{
         Collections.sort(list, comp);
         System.out.println("Đã sắp xếp");
     }
-    void sapXepGiamDanTheoGia(){
+    public void sapXepGiamDanTheoGia(){
         sapXepTangDanTheoGia();
         Collections.reverse(list);
     }
