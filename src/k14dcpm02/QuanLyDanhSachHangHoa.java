@@ -52,9 +52,16 @@ public class QuanLyDanhSachHangHoa{
                     System.out.println("Tên hàng không được để rỗng");
                 }
             }while(tenHang.equalsIgnoreCase(""));
+            int soLuongTonKho=0;///////////////////////////
+            do{
+                System.out.print("Số lượng tồn: ");
+                soLuongTonKho = so.nextInt();
+                if(soLuongTonKho<0){
+                    System.out.println("Số lượng tồn kho phải >=0");
+                }
+            }while(soLuongTonKho<0);
             
-            System.out.print("Số lượng tồn: ");
-            int soLuongTonKho = so.nextInt();///////////////////////////
+            
             double donGia=0.0;////////////////////////////////////
             do{
                 System.out.print("Đơn giá: ");

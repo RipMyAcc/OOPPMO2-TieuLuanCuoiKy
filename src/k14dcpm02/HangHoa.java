@@ -41,7 +41,7 @@ public abstract class HangHoa {
 ///////////////////////////////////////////
     @Override
     public String toString() {
-        return "Tên hàng: " +tenHang+ " || Loại hàng: " +loaiHang+ " || Mã hàng: " +maHang+ " || Số lượng tồn: " +soLuongTon+ " || Đơn giá: " +donGia;
+        return "Tên hàng: " +getTenHang()+ " || Loại hàng: " +getLoaiHang()+ " || Mã hàng: " +getMaHang()+ " || Số lượng tồn: " +getSoLuongTon()+ " || Đơn giá: " +getDonGia();
     }
 
 }
