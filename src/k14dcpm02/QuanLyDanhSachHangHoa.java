@@ -139,6 +139,7 @@ public class QuanLyDanhSachHangHoa{
     {
         if(hangHoa!=null){
             this.list.add(hangHoa);
+            writeFile();
         }
     }
     public boolean kiemTraMaHangTrung(String maHang){
@@ -238,9 +239,10 @@ public class QuanLyDanhSachHangHoa{
     public void xoa(HangHoa hangHoa)
     {
         if(hangHoa!=null){
+            this.list.remove(hangHoa);
             System.out.println("Đã xóa");
+            writeFile();
         }
-        this.list.remove(hangHoa);
     }
     public String nhapMaHangHoa(){
         String maHang=null;//////////////////
@@ -281,6 +283,7 @@ public class QuanLyDanhSachHangHoa{
             if(hangHoa!=null){
                 this.list.set(viTri, hangHoa);
                 System.out.println("Đã sửa");
+                writeFile();
             }
         }
     }
@@ -312,6 +315,19 @@ public class QuanLyDanhSachHangHoa{
         System.out.println("Đã sắp xếp");
     }
 /////////////////////////////////////////////////////////////////////////
+public void writeFile() {
+    File file = new File("HangHoa.dat");
+    PrintWriter out;
+    try {
+        out = new PrintWriter(file);
+        for (HangHoa hangHoa : list) {
+            out.println(hangHoa);
+        }
+        out.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
     public void writeFile(String fileName) {
         File file = new File(fileName);
         PrintWriter out;
